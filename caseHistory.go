@@ -4,11 +4,12 @@ import "fmt"
 
 // CaseHistory represents the change history of a Test Case
 type CaseHistory struct {
-	ID       int                  `json:"id"`
-	TypeID   int                  `json:"type_id"`
-	UserID   int                  `json:"user_id"`
-	Changes  []CaseHistoryChanges `json:"changes"`
-	Comments []string             `json:"comments"`
+	ID        int                  `json:"id"`
+	TypeID    int                  `json:"type_id"`
+	CreatedOn int                  `json:"created_on"`
+	UserID    int                  `json:"user_id"`
+	Changes   []CaseHistoryChanges `json:"changes"`
+	Comments  []string             `json:"comments"`
 }
 
 type CaseHistoryChanges struct {
