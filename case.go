@@ -6,10 +6,10 @@ import "fmt"
 type Case struct {
 	CreatedBy            int          `json:"created_by"`
 	CreatedOn            int          `json:"created_on"`
-	CustomExpected       string       `json:"custom_expected"`
-	CustomPreconds       string       `json:"custom_preconds"`
-	CustomSteps          string       `json:"custom_steps"`
-	CustomStepsSeparated []CustomStep `json:"custom_steps_separated"`
+	CustomExpected       string       `json:"-"`
+	CustomPreconds       string       `json:"-"`
+	CustomSteps          string       `json:"-"`
+	CustomStepsSeparated []CustomStep `json:"-"`
 	Estimate             string       `json:"estimate"`
 	EstimateForecast     string       `json:"estimate_forecast"`
 	ID                   int          `json:"id"`
@@ -23,6 +23,9 @@ type Case struct {
 	UpdatedBy            int          `json:"updated_by"`
 	UdpatedOn            int          `json:"updated_on"`
 	State                int          `json:"custom_state,omitempty"`
+	QAEstimate           int          `json:"custom_qa_estimate_minutes,omitempty"`
+	IsAutomated          bool         `json:"custom_is_automated,omitempty"`
+	AutomationType       int          `json:"custom_automation_type,omitempty"`
 	CustomTestRunConfig  []int        `json:"custom_testrun_configs,omitempty"`
 }
 
