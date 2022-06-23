@@ -21,7 +21,7 @@ type Case struct {
 	Title                string       `json:"title"`
 	TypeID               int          `json:"type_id"`
 	UpdatedBy            int          `json:"updated_by"`
-	UdpatedOn            int          `json:"updated_on"`
+	UpdatedOn            int          `json:"updated_on"`
 	State                int          `json:"custom_state,omitempty"`
 	QAEstimate           int          `json:"custom_qa_estimate_minutes,omitempty"`
 	IsAutomated          bool         `json:"custom_is_automated,omitempty"`
