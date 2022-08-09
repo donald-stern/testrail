@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
+	"time"
 )
 
 // A Client stores the client informations
@@ -97,6 +98,11 @@ func (c *Client) sendRequest(method, uri string, data, v interface{}) error {
 	jsonCnt, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return fmt.Errorf("reading: %s", err)
+	}
+
+	if resp.StatusCode == http.StatusTooManyRequests {
+		time.Sleep(30 * time.Second)
+		return c.sendRequest(method, uri, data, v)
 	}
 
 	if resp.StatusCode >= http.StatusBadRequest {

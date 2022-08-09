@@ -4,6 +4,11 @@ import "fmt"
 
 // CaseHistory represents the change history of a Test Case
 type CaseHistory struct {
+	History []UpdateHistory `json:"history"`
+}
+
+// UpdateHistory represents all changes saved at the same time
+type UpdateHistory struct {
 	ID        int                  `json:"id"`
 	TypeID    int                  `json:"type_id"`
 	CreatedOn int                  `json:"created_on"`
@@ -19,8 +24,8 @@ type CaseHistoryChanges struct {
 	Label    string                   `json:"label"`
 	Options  CaseHistoryChangeOptions `json:"options"`
 	Field    string                   `json:"field"`
-	OldValue string                   `json:"old_value"`
-	NewValue string                   `json:"new_value"`
+	OldValue interface{}              `json:"old_value"`
+	NewValue interface{}              `json:"new_value"`
 }
 
 type CaseHistoryChangeOptions struct {
